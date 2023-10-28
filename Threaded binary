@@ -1,0 +1,21 @@
+Node* leftMost(Node* n){
+    if (n == NULL)
+        return NULL;
+
+    while (n->left != NULL)
+        n = n->left;
+
+    return n;
+}
+
+void inOrder(Node* root){
+    Node* cur = leftMost(root);
+    while (cur != NULL) {
+        cout << cur->data << " ";
+
+        if (cur->rightThread)
+            cur = cur->right;
+        else
+            cur = leftmost(cur->right);
+    }
+}
